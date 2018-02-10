@@ -2,3 +2,13 @@
 <p>
   Bem-vindo ao maior livro de receitas online
 </p>
+
+<% @receitas.each do |receita| %>
+  <h1><%= receita.title %></h1>
+  <ul>
+    <li><%= receita.recipe_type %></li>
+    <li><%= receita.cuisine %></li>
+    <li><%= receita.difficulty %></li>
+    <li><%= receita.cook_time %> minutos</li>
+  </ul>
+<% end %>
