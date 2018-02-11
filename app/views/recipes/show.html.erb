@@ -1,0 +1,11 @@
+<h1><%= @receita.title%></h1>
+<h3>Detalhes</h3>
+<p><%= @receita.recipe_type%></p>
+<p><%= @receita.cuisine%></p>
+<p><%= @receita.difficulty%></p>
+<p><%= @receita.cook_time%> minutos</p>
+<h3>Ingredientes</h3>
+<p><%= @receita.ingredients%></p>
+<h3>Como Preparar</h3>
+<p><%= @receita.method%></p>
+<%= link_to 'Voltar', root_path %>
