@@ -1,0 +1,43 @@
+<h1>Enviar uma receita</h1>
+
+<%= form_for(@nova_receita) do |f| %>
+  <%= f.label :title, 'Título'%>
+  <%= f.text_field :title %>
+  <br>
+
+  <br>
+  <%= f.label :recipe_type, 'Tipo da Receita'%>
+  <%= f.text_field :recipe_type %>
+  <br>
+
+  <br>
+  <%= f.label :cuisine, 'Cozinha'%>
+  <%= f.text_field :cuisine %>
+  <br>
+
+  <br>
+  <%= f.label :difficulty, 'Dificuldade' %>
+  <%= f.text_field :difficulty %>
+  <!-- <%= f.select :difficulty, ['Fácil', 'Médio', 'Difícil'] %> -->
+  <br>
+
+  <br>
+  <%= f.label :cook_time, 'Tempo de Preparo'%>
+  <%= f.text_field :cook_time %>
+  <br>
+
+  <br>
+  <%= f.label :ingredients, 'Ingredientes'%>
+  <%= f.text_area :ingredients %>
+  <br>
+
+  <br>
+  <%= f.label :method, 'Como Preparar'%>
+  <%= f.text_area :method %>
+  <br>
+
+  <br>
+  <%= f.submit 'Enviar' %>
+<% end %>
+
+<p><%= link_to('Voltar', root_path) %></p>

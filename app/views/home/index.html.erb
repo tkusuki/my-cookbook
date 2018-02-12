@@ -6,9 +6,12 @@
 <% @receitas.each do |receita| %>
   <h1><%= link_to receita.title, recipe_path(receita.id) %></h1>
   <ul>
+    <li><%= receita.id %></li>
     <li><%= receita.recipe_type %></li>
     <li><%= receita.cuisine %></li>
     <li><%= receita.difficulty %></li>
     <li><%= receita.cook_time %> minutos</li>
   </ul>
 <% end %>
+
+<%= link_to 'Enviar uma receita', new_recipe_path %>
