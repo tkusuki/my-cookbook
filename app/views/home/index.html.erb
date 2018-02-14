@@ -6,11 +6,11 @@
 <% @receitas.each do |receita| %>
   <h1><%= link_to receita.title, recipe_path(receita.id) %></h1>
   <ul>
-    <li><%= receita.id %></li>
-    <li><%= receita.recipe_type %></li>
-    <li><%= receita.cuisine %></li>
-    <li><%= receita.difficulty %></li>
-    <li><%= receita.cook_time %> minutos</li>
+    <li>ID: <%= receita.id %></li>
+    <li>Tipo de Receita: <%= receita.recipe_type %></li>
+    <li>Cozinha: <%= receita.cuisine %></li>
+    <li>Dificuldade: <%= receita.difficulty %></li>
+    <li>Tempo de Preparo: <%= receita.cook_time %> minutos</li>
   </ul>
 <% end %>
 
