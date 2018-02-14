@@ -1,43 +1,52 @@
 <h1>Enviar uma receita</h1>
 
-<%= form_for(@nova_receita) do |f| %>
-  <%= f.label :title, 'Título'%>
-  <%= f.text_field :title %>
-  <br>
+<%= form_for(@receita) do |f| %>
 
-  <br>
-  <%= f.label :recipe_type, 'Tipo da Receita'%>
-  <%= f.text_field :recipe_type %>
-  <br>
+  <% if @receita.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@receita.errors.count, "erros") %> encontrados!</h2>
+      <ul>
+      <% @receita.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <br>
-  <%= f.label :cuisine, 'Cozinha'%>
-  <%= f.text_field :cuisine %>
-  <br>
+  <p>
+    <%= f.label :title, 'Título '%>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :recipe_type, 'Tipo da Receita '%>
+    <%= f.text_field :recipe_type %>
+  </p>
+  <p>
+    <%= f.label :cuisine, 'Cozinha '%>
+    <%= f.text_field :cuisine %>
+  </p>
+  <p>
+    <%= f.label :difficulty, 'Dificuldade ' %>
+    <%= f.text_field :difficulty %>
+    <!-- <%= f.select :difficulty, ['Fácil', 'Médio', 'Difícil'] %> -->
+  </p>
+  <p>
+    <%= f.label :cook_time, 'Tempo de Preparo '%>
+    <%= f.text_field :cook_time %>
+  </p>
+  <p>
+    <%= f.label :ingredients, 'Ingredientes '%>
+    <%= f.text_area :ingredients %>
+  </p>
+  <p>
+    <%= f.label :method, 'Como Preparar '%>
+    <%= f.text_area :method %>
+  </p>
+  <p>
+    <%= f.submit 'Enviar' %>
+  </p>
 
-  <br>
-  <%= f.label :difficulty, 'Dificuldade' %>
-  <%= f.text_field :difficulty %>
-  <!-- <%= f.select :difficulty, ['Fácil', 'Médio', 'Difícil'] %> -->
-  <br>
-
-  <br>
-  <%= f.label :cook_time, 'Tempo de Preparo'%>
-  <%= f.text_field :cook_time %>
-  <br>
-
-  <br>
-  <%= f.label :ingredients, 'Ingredientes'%>
-  <%= f.text_area :ingredients %>
-  <br>
-
-  <br>
-  <%= f.label :method, 'Como Preparar'%>
-  <%= f.text_area :method %>
-  <br>
-
-  <br>
-  <%= f.submit 'Enviar' %>
 <% end %>
+
 
 <p><%= link_to('Voltar', root_path) %></p>

@@ -4,11 +4,10 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @nova_receita = Recipe.new
+    @receita = Recipe.new
   end
 
   def create
-
     recipe = params[:recipe]
     title = recipe[:title]
 
@@ -20,7 +19,7 @@ class RecipesController < ApplicationController
     ingredients = recipe[:ingredients]
     method = recipe[:method]
 
-    receita = Recipe.new(
+    @receita = Recipe.new(
                           title: title,
                           recipe_type: recipe_type,
                           cuisine: cuisine,
@@ -29,9 +28,11 @@ class RecipesController < ApplicationController
                           ingredients: ingredients,
                           method: method
                         )
-    # puts receita
-    receita.save
-    redirect_to recipe_path(receita.id)
+    if (@receita.save)
+      redirect_to @receita
+    else
+      render 'new'
+    end
   end
 
 
