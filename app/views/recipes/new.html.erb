@@ -23,7 +23,7 @@
   </p>
   <p>
     <%= f.label :cuisine, 'Cozinha '%>
-    <%= f.text_field :cuisine %>
+    <%= f.collection_select(:cuisine, Cuisine.all, :id, :name) %>
   </p>
   <p>
     <%= f.label :difficulty, 'Dificuldade ' %>
