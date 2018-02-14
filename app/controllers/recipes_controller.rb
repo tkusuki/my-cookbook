@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
 
     title = recipe[:title]
     recipe_type = recipe[:recipe_type]
-    cuisine = recipe[:cuisine]
+    cuisine_id = recipe[:cuisine_id]
     difficulty = recipe[:difficulty]
     cook_time = recipe[:cook_time]
     ingredients = recipe[:ingredients]
@@ -22,7 +22,7 @@ class RecipesController < ApplicationController
     @receita = Recipe.new(
                           title: title,
                           recipe_type: recipe_type,
-                          cuisine: cuisine,
+                          cuisine_id: cuisine_id,
                           difficulty: difficulty,
                           cook_time: cook_time,
                           ingredients: ingredients,

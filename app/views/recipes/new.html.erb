@@ -22,8 +22,8 @@
     <%= f.text_field :recipe_type %>
   </p>
   <p>
-    <%= f.label :cuisine, 'Cozinha '%>
-    <%= f.collection_select(:cuisine, Cuisine.all, :id, :name) %>
+    <%= f.label :cuisine_id, 'Cozinha '%>
+    <%= f.collection_select(:cuisine_id, Cuisine.all, :id, :name) %>
   </p>
   <p>
     <%= f.label :difficulty, 'Dificuldade ' %>
