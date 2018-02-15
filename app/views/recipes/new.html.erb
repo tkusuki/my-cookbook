@@ -12,39 +12,38 @@
       </ul>
     </div>
   <% end %>
-
-  <p>
+  <div>
     <%= f.label :title, 'Título '%>
     <%= f.text_field :title %>
-  </p>
-  <p>
+  </div>
+  <div>
     <%= f.label :recipe_type, 'Tipo da Receita '%>
     <%= f.text_field :recipe_type %>
-  </p>
-  <p>
+  </div>
+  <div>
     <%= f.label :cuisine_id, 'Cozinha '%>
     <%= f.collection_select(:cuisine_id, Cuisine.all, :id, :name) %>
-  </p>
-  <p>
+  </div>
+  <div>
     <%= f.label :difficulty, 'Dificuldade ' %>
     <%= f.text_field :difficulty %>
     <!-- <%= f.select :difficulty, ['Fácil', 'Médio', 'Difícil'] %> -->
-  </p>
-  <p>
+  </div>
+  <div>
     <%= f.label :cook_time, 'Tempo de Preparo '%>
     <%= f.text_field :cook_time %>
-  </p>
-  <p>
+  </div>
+  <div>
     <%= f.label :ingredients, 'Ingredientes '%>
     <%= f.text_area :ingredients %>
-  </p>
-  <p>
+  </div>
+  <div>
     <%= f.label :method, 'Como Preparar '%>
     <%= f.text_area :method %>
-  </p>
-  <p>
+  </div>
+  <div>
     <%= f.submit 'Enviar' %>
-  </p>
+  </div>
 
 <% end %>
 
