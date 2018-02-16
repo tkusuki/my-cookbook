@@ -4,14 +4,10 @@
 
   <% if @receita.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@receita.errors.count, "erros") %> encontrados!</h2>
-      <ul>
-      <% @receita.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+      <p>Você deve informar todos os dados da receita</p>
     </div>
   <% end %>
+
   <div>
     <%= f.label :title, 'Título '%>
     <%= f.text_field :title %>
@@ -27,7 +23,6 @@
   <div>
     <%= f.label :difficulty, 'Dificuldade ' %>
     <%= f.text_field :difficulty %>
-    <!-- <%= f.select :difficulty, ['Fácil', 'Médio', 'Difícil'] %> -->
   </div>
   <div>
     <%= f.label :cook_time, 'Tempo de Preparo '%>
