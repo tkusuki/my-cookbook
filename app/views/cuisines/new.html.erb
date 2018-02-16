@@ -1,0 +1,20 @@
+<h1>Cadastrar uma cozinha</h1>
+<%= form_for @cozinha do |f| %>
+
+  <% if @cozinha.errors.any? %>
+    <div id="error_explanation">
+      <p>Você deve informar o nome da cozinha</p>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :name, 'Nome' %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.submit 'Enviar' %>
+  </div>
+<% end %>
+<p>
+  <%= link_to 'Voltar', root_path %>
+</p>
