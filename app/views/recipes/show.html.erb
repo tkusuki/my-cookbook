@@ -1,11 +1,11 @@
 <h1><%= @receita.title%></h1>
 <h3>Detalhes</h3>
-<p>Tipo da Receita: <%= @receita.recipe_type%></p>
-<p>Cozinha :<%= @receita.cuisine.name%></p>
-<p>Dificuldade: <%= @receita.difficulty%></p>
-<p>Tempo de Preparo: <%= @receita.cook_time%> minutos</p>
+<p>Tipo da Receita: <%= @receita.recipe_type.name %></p>
+<p>Cozinha :<%= @receita.cuisine.name %></p>
+<p>Dificuldade: <%= @receita.difficulty %></p>
+<p>Tempo de Preparo: <%= @receita.cook_time %> minutos</p>
 <h3>Ingredientes</h3>
-<p><%= @receita.ingredients%></p>
+<p><%= @receita.ingredients %></p>
 <h3>Como Preparar</h3>
-<p><%= @receita.method%></p>
+<p><%= @receita.method %></p>
 <%= link_to 'Voltar', root_path %>

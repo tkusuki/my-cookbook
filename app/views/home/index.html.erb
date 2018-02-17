@@ -16,7 +16,7 @@ Cozinha
 <% @receitas.each do |receita| %>
   <h1><%= link_to receita.title, recipe_path(receita.id) %></h1>
   <ul>
-    <li>Tipo de Receita: <%= receita.recipe_type %></li>
+    <li>Tipo de Receita: <%= receita.recipe_type.name %></li>
     <li>Cozinha: <%= receita.cuisine.name %></li>
     <li>Dificuldade: <%= receita.difficulty %></li>
     <li>Tempo de Preparo: <%= receita.cook_time %> minutos</li>
