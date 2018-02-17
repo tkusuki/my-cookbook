@@ -2,23 +2,34 @@
 <p>
   Bem-vindo ao maior livro de receitas online
 </p>
-<%= link_to 'Enviar uma receita', new_recipe_path %>  |
-<%= link_to 'Cadastrar uma cozinha', new_cuisine_path %>
+<p>
+  <%= link_to 'Enviar uma receita', new_recipe_path %>  |
+  <%= link_to 'Cadastrar uma cozinha', new_cuisine_path %>
+</p>
 <hr>
-
-Cozinha
+<h2>Cozinha</h2>
 <ul>
   <% @cozinhas.each do |cozinha| %>
   <li><%= link_to cozinha.name, cuisine_path(cozinha.id) %></li>
   <% end %>
 </ul>
+
+<h2>Tipo</h2>
+<ul>
+  <% @tipos_receitas.each do |tipo| %>
+  <li><%= link_to tipo.name, recipe_type_path(tipo.id) %></li>
+  <% end %>
+</ul>
+
 <hr>
-<% @receitas.each do |receita| %>
-  <h1><%= link_to receita.title, recipe_path(receita.id) %></h1>
-  <ul>
-    <li>Tipo de Receita: <%= receita.recipe_type.name %></li>
-    <li>Cozinha: <%= receita.cuisine.name %></li>
-    <li>Dificuldade: <%= receita.difficulty %></li>
-    <li>Tempo de Preparo: <%= receita.cook_time %> minutos</li>
-  </ul>
-<% end %>
+<p>
+  <% @receitas.each do |receita| %>
+    <h1><%= link_to receita.title, recipe_path(receita.id) %></h1>
+    <ul>
+      <li>Tipo de Receita: <%= receita.recipe_type.name %></li>
+      <li>Cozinha: <%= receita.cuisine.name %></li>
+      <li>Dificuldade: <%= receita.difficulty %></li>
+      <li>Tempo de Preparo: <%= receita.cook_time %> minutos</li>
+    </ul>
+  <% end %>
+</p>
