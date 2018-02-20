@@ -1,16 +1,16 @@
-<h1><%= @tipos_receitas.name %></h1>
+<h1><%= @recipe_types.name %></h1>
 
-<% if @tipos_receitas.recipes.empty? %>
+<% if @recipe_types.recipes.empty? %>
   <p>Nenhuma receita encontrada para este tipo de receitas</p>
 <% else %>
-  <% @tipos_receitas.recipes.each do |receita| %>
+  <% @recipe_types.recipes.each do |recipe| %>
     <div>
-      <h1><%= receita.title %></h1>
+      <h1><%= recipe.title %></h1>
       <ul>
-        <li><%= receita.recipe_type.name %></li>
-        <li><%= receita.cuisine.name %></li>
-        <li><%= receita.difficulty %></li>
-        <li><%= receita.cook_time %> minutos</li>
+        <li><%= recipe.recipe_type.name %></li>
+        <li><%= recipe.cuisine.name %></li>
+        <li><%= recipe.difficulty %></li>
+        <li><%= recipe.cook_time %> minutos</li>
       </ul>
     </div>
   <% end %>

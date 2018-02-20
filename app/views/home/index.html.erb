@@ -9,27 +9,27 @@
 <hr>
 <h2>Cozinha</h2>
 <ul>
-  <% @cozinhas.each do |cozinha| %>
-  <li><%= link_to cozinha.name, cuisine_path(cozinha.id) %></li>
+  <% @cuisines.each do |cuisine| %>
+  <li><%= link_to cuisine.name, cuisine_path(cuisine.id) %></li>
   <% end %>
 </ul>
 
 <h2>Tipo</h2>
 <ul>
-  <% @tipos_receitas.each do |tipo| %>
-  <li><%= link_to tipo.name, recipe_type_path(tipo.id) %></li>
+  <% @recipe_types.each do |type| %>
+  <li><%= link_to type.name, recipe_type_path(type.id) %></li>
   <% end %>
 </ul>
 
 <hr>
 <p>
-  <% @receitas.each do |receita| %>
-    <h1><%= link_to receita.title, recipe_path(receita.id) %></h1>
+  <% @recipes.each do |recipe| %>
+    <h1><%= link_to recipe.title, recipe_path(recipe.id) %></h1>
     <ul>
-      <li>Tipo de Receita: <%= receita.recipe_type.name %></li>
-      <li>Cozinha: <%= receita.cuisine.name %></li>
-      <li>Dificuldade: <%= receita.difficulty %></li>
-      <li>Tempo de Preparo: <%= receita.cook_time %> minutos</li>
+      <li>Tipo de Receita: <%= recipe.recipe_type.name %></li>
+      <li>Cozinha: <%= recipe.cuisine.name %></li>
+      <li>Dificuldade: <%= recipe.difficulty %></li>
+      <li>Tempo de Preparo: <%= recipe.cook_time %> minutos</li>
     </ul>
   <% end %>
 </p>

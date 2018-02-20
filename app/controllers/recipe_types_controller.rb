@@ -1,5 +1,5 @@
 class RecipeTypesController < ApplicationController
   def show
-    @tipos_receitas = RecipeType.find(params[:id])
+    @recipe_types = RecipeType.find(params[:id])
   end
 end
