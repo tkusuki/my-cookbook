@@ -15,8 +15,9 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
 
     if (@recipe.save)
-      redirect_to recipe_path(@recipe.id)
+      redirect_to @recipe
     else
+      flash[:error] = "Você deve informar todos os dados da receita"
       @recipe_types = RecipeType.all
       @cuisines = Cuisine.all
       render 'new'

@@ -1,12 +1,6 @@
 <h1>Cadastrar uma cozinha</h1>
+<%= flash[:error] %>
 <%= form_for @cuisine do |f| %>
-
-  <% if @cuisine.errors.any? %>
-    <div id="error_explanation">
-      <p>Você deve informar o nome da cozinha</p>
-    </div>
-  <% end %>
-
   <div>
     <%= f.label :name, 'Nome' %>
     <%= f.text_field :name %>

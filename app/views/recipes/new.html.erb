@@ -1,13 +1,6 @@
 <h1>Enviar uma receita</h1>
-
+<%= flash[:error] %>
 <%= form_for(@recipe) do |f| %>
-
-  <% if @recipe.errors.any? %>
-    <div id="error_explanation">
-      <p>Você deve informar todos os dados da receita</p>
-    </div>
-  <% end %>
-
   <div>
     <%= f.label :title, 'Título '%>
     <%= f.text_field :title %>
