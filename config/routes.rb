@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'home#index'
-  resources :recipes
-  resources :cuisines
-  resources :recipe_types
+  resources :recipes, only: [:show, :new, :create]
+  resources :cuisines, only: [:show, :new, :create]
+  resources :recipe_types, only: [:show, :new, :create]
 end
