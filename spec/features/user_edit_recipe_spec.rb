@@ -28,7 +28,7 @@ feature 'User edit recipe' do
     fill_in 'Dificuldade', with: 'Fácil'
     fill_in 'Tempo de Preparo', with: 40
     fill_in 'Ingredientes', with: 'Gohan, nori, salmão'
-    fill_in 'Como preparar', with: 'Cozinhe o arroz, monte o arroz e o salmão no nori e enrole'
+    fill_in 'Como Preparar', with: 'Cozinhe o arroz, monte o arroz e o salmão no nori e enrole'
 
     click_button 'Enviar'
 
@@ -64,7 +64,7 @@ feature 'User edit recipe' do
     fill_in 'Dificuldade', with: ''
     fill_in 'Tempo de Preparo', with: ''
     fill_in 'Ingredientes', with: ''
-    fill_in 'Como preparar', with: ''
+    fill_in 'Como Preparar', with: ''
 
     click_button 'Enviar'
 
