@@ -20,6 +20,7 @@ feature 'User edit recipe' do
     # simula a ação do usuário
     visit root_path
     click_link recipe.title
+    click_link 'Editar'
 
     fill_in 'Título', with: 'Sushi de salmão'
     select 'Entrada', from: 'Tipo da Receita'
@@ -57,6 +58,7 @@ feature 'User edit recipe' do
     # simula a ação do usuário
     visit root_path
     click_link recipe.title
+    click_link 'Editar'
 
     fill_in 'Título', with: ''
     fill_in 'Dificuldade', with: ''
