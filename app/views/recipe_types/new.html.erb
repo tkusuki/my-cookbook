@@ -1,5 +1,12 @@
 <h1>Cadastrar um tipo de receita</h1>
-<%= flash[:error] %>
+<% if @recipe_type.errors.any? %>
+  <div id="msg_errors">
+    <% @recipe_type.errors[:name].each do |msg| %>
+      <p><%= msg %></p>
+    <% end %>
+  </div>
+<% end %>
+
 <%= form_for @recipe_type do |f| %>
   <div>
     <%= f.label :name, 'Nome' %>
