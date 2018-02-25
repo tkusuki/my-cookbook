@@ -1,5 +1,12 @@
 <h1>Cadastrar uma cozinha</h1>
-<%= flash[:error] %>
+<% if @cuisine.errors.any? %>
+  <div id="msg_errors">
+    <% @cuisine.errors[:name].each do |msg| %>
+      <p><%= msg %></p>
+    <% end %>
+  </div>
+<% end %>
+
 <%= form_for @cuisine do |f| %>
   <div>
     <%= f.label :name, 'Nome' %>
