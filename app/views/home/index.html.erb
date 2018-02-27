@@ -24,6 +24,9 @@
 
 <hr>
 <p>
+  <%= flash[:notice] %>
+</p>
+<p>
   <% @recipes.each do |recipe| %>
     <h1><%= link_to recipe.title, recipe_path(recipe.id) %></h1>
     <ul>

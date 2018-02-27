@@ -9,4 +9,5 @@
 <h3>Como Preparar</h3>
 <p><%= @recipe.method %></p>
 <%= link_to 'Voltar', root_path %> |
-<%= link_to 'Editar', edit_recipe_path(@recipe.id) %>
+<%= link_to 'Editar', edit_recipe_path(@recipe.id) %> |
+<%= link_to 'Remover', recipe_path(@recipe.id), method: :delete %>
