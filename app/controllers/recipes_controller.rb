@@ -1,6 +1,10 @@
 class RecipesController < ApplicationController
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find_by(id: params[:id])
+    if @recipe.nil?
+      flash[:notice] = "Receita não encontrada"
+      redirect_to root_path
+    end
   end
 
   def new
@@ -17,7 +21,6 @@ class RecipesController < ApplicationController
     if (@recipe.save)
       redirect_to @recipe
     else
-      flash[:error] = "Você deve informar todos os dados da receita"
       @recipe_types = RecipeType.all
       @cuisines = Cuisine.all
       render 'new'
@@ -40,7 +43,6 @@ class RecipesController < ApplicationController
     else
       @recipe_types = RecipeType.all
       @cuisines = Cuisine.all
-      flash[:error] = "Você deve informar todos os dados da receita"
       render 'edit'
     end
   end

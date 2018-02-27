@@ -1,7 +1,7 @@
 <h1>Cadastrar uma cozinha</h1>
 <% if @cuisine.errors.any? %>
   <div id="msg_errors">
-    <% @cuisine.errors[:name].each do |msg| %>
+    <% @cuisine.errors.full_messages.each do |msg| %>
       <p><%= msg %></p>
     <% end %>
   </div>

@@ -1,5 +1,11 @@
 <h1>Editar uma receita</h1>
-<%= flash[:error] %>
+<% if @recipe.errors.any? %>
+  <div id="msg_errors">
+    <% @recipe.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+    <% end %>
+  </div>
+<% end %>
 <%= form_for(@recipe) do |f| %>
   <div>
     <%= f.label :title, 'Título '%>
