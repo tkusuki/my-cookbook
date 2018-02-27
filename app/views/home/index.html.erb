@@ -8,6 +8,15 @@
   <%= link_to 'Cadatrar um tipo de receita', new_recipe_type_path %>
 </p>
 <hr>
+
+<%= form_tag recipes_path, method: :get do %>
+  <%= label_tag(:q, "Busca:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Buscar") %>
+<% end %>
+
+<hr>
+
 <h2>Cozinha</h2>
 <ul>
   <% @cuisines.each do |cuisine| %>
