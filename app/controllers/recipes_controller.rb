@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
   def index
+    @search = params[:search]
+    @recipes = Recipe.find_by(title: @search)
 
   end
 
