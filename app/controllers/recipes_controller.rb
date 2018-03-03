@@ -1,10 +1,4 @@
 class RecipesController < ApplicationController
-  def index
-    @search = params[:search]
-    @recipes = Recipe.find_by(title: @search)
-
-  end
-
   def show
     @recipe = Recipe.find_by(id: params[:id])
     if @recipe.nil?
@@ -58,6 +52,11 @@ class RecipesController < ApplicationController
     @recipe.destroy
     flash[:notice] = "Receita removida com sucesso"
     redirect_to root_path
+  end
+
+  def search
+    @search = params[:search]
+    @recipes = Recipe.where("title LIKE ?", "%#{@search}%")
   end
 
 end
