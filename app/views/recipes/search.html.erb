@@ -4,16 +4,8 @@
   <p>Nenhuma receita encontrada</p>
 <% else %>
   <% @recipes.each do |recipe| %>
-    <div class="recipes-search">
-      <h1><%= link_to recipe.title, recipe_path(recipe.id) %></h1>
-      <ul>
-        <li><%= recipe.recipe_type.name %></li>
-        <li><%= recipe.cuisine.name %></li>
-        <li><%= recipe.difficulty %></li>
-        <li><%= recipe.cook_time %> minutos</li>
-      </ul>
-    </div>
+    <%= render recipe %>
   <% end %>
 <% end %>
 
-<%= link_to 'Voltar', root_path %>
+<p><%= link_to "Voltar", root_path %></p>

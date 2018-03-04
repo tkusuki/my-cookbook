@@ -1,44 +1,4 @@
 <h1>Enviar uma receita</h1>
-<% if @recipe.errors.any? %>
-  <div id="msg_errors">
-    <% @recipe.errors.full_messages.each do |msg| %>
-      <p><%= msg %></p>
-    <% end %>
-  </div>
-<% end %>
-<%= form_for(@recipe) do |f| %>
-  <div>
-    <%= f.label :title, 'Título '%>
-    <%= f.text_field :title %>
-  </div>
-  <div>
-    <%= f.label :recipe_type_id, 'Tipo da Receita '%>
-    <%= f.collection_select(:recipe_type_id, @recipe_types, :id, :name) %>
-
-  </div>
-  <div>
-    <%= f.label :cuisine_id, 'Cozinha '%>
-    <%= f.collection_select(:cuisine_id, @cuisines, :id, :name) %>
-  </div>
-  <div>
-    <%= f.label :difficulty, 'Dificuldade ' %>
-    <%= f.text_field :difficulty %>
-  </div>
-  <div>
-    <%= f.label :cook_time, 'Tempo de Preparo '%>
-    <%= f.text_field :cook_time %>
-  </div>
-  <div>
-    <%= f.label :ingredients, 'Ingredientes '%>
-    <%= f.text_area :ingredients %>
-  </div>
-  <div>
-    <%= f.label :method, 'Como Preparar '%>
-    <%= f.text_area :method %>
-  </div>
-  <div>
-    <%= f.submit 'Enviar' %>
-  </div>
-<% end %>
-
-<p><%= link_to('Voltar', root_path) %></p>
+<%= render partial: "shared/errors", locals: {object: @recipe} %>
+<%= render "form" %>
+<p><%= link_to "Voltar", root_path %></p>

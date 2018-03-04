@@ -1,11 +1,5 @@
 <h1>Cadastrar uma cozinha</h1>
-<% if @cuisine.errors.any? %>
-  <div id="msg_errors">
-    <% @cuisine.errors.full_messages.each do |msg| %>
-      <p><%= msg %></p>
-    <% end %>
-  </div>
-<% end %>
+<%= render partial: "shared/errors", locals: {object: @cuisine} %>
 
 <%= form_for @cuisine do |f| %>
   <div>
@@ -17,5 +11,5 @@
   </div>
 <% end %>
 <p>
-  <%= link_to 'Voltar', root_path %>
+  <%= link_to "Voltar", root_path %>
 </p>

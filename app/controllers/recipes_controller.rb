@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
     else
       @recipe_types = RecipeType.all
       @cuisines = Cuisine.all
-      render 'new'
+      render "new"
     end
   end
 
@@ -43,7 +43,7 @@ class RecipesController < ApplicationController
     else
       @recipe_types = RecipeType.all
       @cuisines = Cuisine.all
-      render 'edit'
+      render "edit"
     end
   end
 

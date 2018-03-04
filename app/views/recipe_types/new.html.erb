@@ -1,11 +1,5 @@
 <h1>Cadastrar um tipo de receita</h1>
-<% if @recipe_type.errors.any? %>
-  <div id="msg_errors">
-    <% @recipe_type.errors[:name].each do |msg| %>
-      <p><%= msg %></p>
-    <% end %>
-  </div>
-<% end %>
+<%= render partial: "shared/errors", locals: {object: @recipe_type} %>
 
 <%= form_for @recipe_type do |f| %>
   <div>
