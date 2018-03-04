@@ -36,7 +36,8 @@
   <%= flash[:notice] %>
 </p>
 <p>
-  <% @recipes.each do |recipe| %>
+  <% @recipes_latest.each do |recipe| %>
     <%= render recipe %>
   <% end %>
 </p>
+<p><%= link_to "Ver todas as receitas", recipes_path %></p>

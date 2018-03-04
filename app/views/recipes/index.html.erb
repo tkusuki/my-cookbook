@@ -1,0 +1,5 @@
+<h1>Todas as receitas cadastradas</h1>
+<% @recipes.each do |recipe| %>
+  <%= render recipe %>
+<% end %>
+<p><%= link_to "Voltar", root_path %></p>
