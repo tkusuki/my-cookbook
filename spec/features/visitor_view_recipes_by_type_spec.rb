@@ -5,10 +5,11 @@ feature 'Visitor view recipes by type' do
 
   scenario 'from home page' do
     # cria os dados necessários previamente
+    user = User.create(email: 'thais@email.com', password: '12345678')
     cuisine = Cuisine.create(name: 'Brasileira')
     recipe_type = RecipeType.create(name: 'Sobremesa')
 
-    recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
+    recipe = Recipe.create(user: user, title: 'Bolo de cenoura', recipe_type: recipe_type,
                            cuisine: cuisine, difficulty: 'Médio',
                            cook_time: 60,
                            ingredients: 'Farinha, açucar, cenoura',
@@ -29,9 +30,10 @@ feature 'Visitor view recipes by type' do
 
   scenario 'and view only recipes from same type' do
     # cria os dados necessários previamente
+    user = User.create(email: 'thais@email.com', password: '12345678')
     brazilian_cuisine = Cuisine.create(name: 'Brasileira')
     dessert_recipe_type = RecipeType.create(name: 'Sobremesa')
-    dessert_recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: dessert_recipe_type,
+    dessert_recipe = Recipe.create(user: user, title: 'Bolo de cenoura', recipe_type: dessert_recipe_type,
                                    cuisine: brazilian_cuisine, difficulty: 'Médio',
                                    cook_time: 60,
                                    ingredients: 'Farinha, açucar, cenoura',
@@ -39,7 +41,7 @@ feature 'Visitor view recipes by type' do
 
     italian_cuisine = Cuisine.create(name: 'Italiana')
     main_recipe_type = RecipeType.create(name: 'Prato Principal')
-    main_recipe = Recipe.create(title: 'Macarrão Carbonara', recipe_type: main_recipe_type,
+    main_recipe = Recipe.create(user: user, title: 'Macarrão Carbonara', recipe_type: main_recipe_type,
                                 cuisine: italian_cuisine, difficulty: 'Difícil',
                                 cook_time: 30, ingredients: 'Massa, ovos, bacon',
                                 method: 'Frite o bacon; Cozinhe a massa ate ficar al dent; Misture os ovos e o bacon a massa ainda quente;')
@@ -62,9 +64,10 @@ feature 'Visitor view recipes by type' do
 
   scenario 'and type has no recipe' do
     # cria os dados necessários previamente
+    user = User.create(email: 'thais@email.com', password: '12345678')
     brazilian_cuisine = Cuisine.create(name: 'Brasileira')
     recipe_type = RecipeType.create(name: 'Sobremesa')
-    recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
+    recipe = Recipe.create(user: user, title: 'Bolo de cenoura', recipe_type: recipe_type,
                            cuisine: brazilian_cuisine, difficulty: 'Médio',
                            cook_time: 60,
                            ingredients: 'Farinha, açucar, cenoura',

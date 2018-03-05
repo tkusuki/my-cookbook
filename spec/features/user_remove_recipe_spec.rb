@@ -4,9 +4,10 @@ feature 'User remove recipe' do
   scenario 'successfully' do
 
     # cria os dados necessários
+    user = User.create(email: 'thais@email.com', password: '12345678')
     cuisine = Cuisine.create(name: 'Italiana')
     recipe_type = RecipeType.create(name: 'Entrada')
-    recipe = Recipe.create(title: 'Bruschetta', recipe_type: recipe_type,
+    recipe = Recipe.create(user: user, title: 'Bruschetta', recipe_type: recipe_type,
               cuisine: cuisine, difficulty: 'Fácil', cook_time: 30,
               ingredients: 'Pão italiano, tomates, cebola, azeite',
               method: 'Pique o tomate e a cebola, monte no pão cortado e leve ao forno')
@@ -26,9 +27,10 @@ feature 'User remove recipe' do
   scenario 'and try to remove the same recipe again' do
 
     # cria os dados necessários
+    user = User.create(email: 'thais@email.com', password: '12345678')
     cuisine = Cuisine.create(name: 'Italiana')
     recipe_type = RecipeType.create(name: 'Entrada')
-    recipe = Recipe.create(title: 'Bruschetta', recipe_type: recipe_type,
+    recipe = Recipe.create(user: user, title: 'Bruschetta', recipe_type: recipe_type,
               cuisine: cuisine, difficulty: 'Fácil', cook_time: 30,
               ingredients: 'Pão italiano, tomates, cebola, azeite',
               method: 'Pique o tomate e a cebola, monte no pão cortado e leve ao forno')
