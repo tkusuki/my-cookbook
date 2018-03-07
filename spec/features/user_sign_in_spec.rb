@@ -4,13 +4,13 @@ feature 'User sign in' do
   scenario 'successfully' do
 
     # cria os dados necessários
-    User.create(email: 'thais@email.com', password: '12345678')
+    user = create(:user)
 
     # simula a ação do usuário
     visit root_path
     click_on 'Entrar'
-    fill_in 'Email', with: 'thais@email.com'
-    fill_in 'Senha', with: '12345678'
+    fill_in 'Email', with: user.email
+    fill_in 'Senha', with: user.password
     click_on 'Login'
 
     # expectativas do usuário apos a ação
@@ -21,13 +21,13 @@ feature 'User sign in' do
 
   scenario 'and sign out' do
     # cria os dados necessários
-    User.create(email: 'thais@email.com', password: '12345678')
+    user = create(:user)
 
     # simula a ação do usuário
     visit root_path
     click_on 'Entrar'
-    fill_in 'Email', with: 'thais@email.com'
-    fill_in 'Senha', with: '12345678'
+    fill_in 'Email', with: user.email
+    fill_in 'Senha', with: user.password
     click_on 'Login'
     click_on 'Sair'
 
