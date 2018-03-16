@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'User update recipe' do
   scenario 'successfully' do
     #cria os dados necessários
-    user = User.create(email: 'thais@email.com', password: '12345678')
+    user = create(:user)
     arabian_cuisine = Cuisine.create(name: 'Arabe')
     brazilian_cuisine = Cuisine.create(name: 'Brasileira')
 
@@ -18,6 +18,7 @@ feature 'User update recipe' do
                           method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
 
     # simula a ação do usuário
+    login_as(user)
     visit root_path
     click_on 'Bolodecenoura'
     click_on 'Editar'
@@ -44,7 +45,8 @@ feature 'User update recipe' do
 
   scenario 'and all fields must be filled' do
     #cria os dados necessários, nesse caso não vamos criar dados no banco
-    user = User.create(email: 'thais@email.com', password: '12345678')
+    user = create(:user)
+
     arabian_cuisine = Cuisine.create(name: 'Arabe')
     brazilian_cuisine = Cuisine.create(name: 'Brasileira')
 
@@ -59,6 +61,7 @@ feature 'User update recipe' do
                           method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
 
     # simula a ação do usuário
+    login_as(user)
     visit root_path
     click_on 'Bolodecenoura'
     click_on 'Editar'
@@ -72,5 +75,26 @@ feature 'User update recipe' do
     click_on 'Enviar'
 
     expect(page).to have_content('Você deve informar todos os dados da receita')
+  end
+
+  scenario 'but is not owner of recipe' do
+
+    #cria os dados necessários, nesse caso não vamos criar dados no banco
+    user = create(:user)
+    another_user = create(:user, email: 'another_user@email.com')
+
+    cuisine = Cuisine.create(name: 'Italiana')
+    recipe_type = RecipeType.create(name: 'Entrada')
+    recipe = Recipe.create(user: user, title: 'Bruschetta', recipe_type: recipe_type,
+              cuisine: cuisine, difficulty: 'Fácil', cook_time: 30,
+              ingredients: 'Pão italiano, tomates, cebola, azeite',
+              method: 'Pique o tomate e a cebola, monte no pão cortado e leve ao forno')
+
+    # simula a ação do usuário
+    login_as(another_user)
+    visit edit_recipe_path(recipe)
+
+    # expectativas de rota após a ação
+    expect(current_path).to eq(root_path)
   end
 end

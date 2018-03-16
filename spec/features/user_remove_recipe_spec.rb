@@ -4,7 +4,8 @@ feature 'User remove recipe' do
   scenario 'successfully' do
 
     # cria os dados necessários
-    user = User.create(email: 'thais@email.com', password: '12345678')
+    user = create(:user)
+
     cuisine = Cuisine.create(name: 'Italiana')
     recipe_type = RecipeType.create(name: 'Entrada')
     recipe = Recipe.create(user: user, title: 'Bruschetta', recipe_type: recipe_type,
@@ -13,6 +14,7 @@ feature 'User remove recipe' do
               method: 'Pique o tomate e a cebola, monte no pão cortado e leve ao forno')
 
     # simula a ação do usuário
+    login_as(user)
     visit root_path
     click_on recipe.title
     click_on 'Remover'
@@ -27,7 +29,8 @@ feature 'User remove recipe' do
   scenario 'and try to remove the same recipe again' do
 
     # cria os dados necessários
-    user = User.create(email: 'thais@email.com', password: '12345678')
+    user = create(:user)
+
     cuisine = Cuisine.create(name: 'Italiana')
     recipe_type = RecipeType.create(name: 'Entrada')
     recipe = Recipe.create(user: user, title: 'Bruschetta', recipe_type: recipe_type,
@@ -36,6 +39,7 @@ feature 'User remove recipe' do
               method: 'Pique o tomate e a cebola, monte no pão cortado e leve ao forno')
 
     # simula a ação do usuário
+    login_as(user)
     visit root_path
     click_on recipe.title
     click_on 'Remover'
@@ -46,7 +50,6 @@ feature 'User remove recipe' do
 
     # expectativa da rota atual
     expect(current_path).to eq(root_path)
-
 
   end
 

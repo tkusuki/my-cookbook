@@ -1,10 +1,12 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def index
     @recipes = Recipe.all
   end
 
   def show
     @recipe = Recipe.find_by(id: params[:id])
+
     if @recipe.nil?
       flash[:notice] = "Receita não encontrada"
       redirect_to root_path
@@ -36,6 +38,10 @@ class RecipesController < ApplicationController
     @recipe_types = RecipeType.all
     @cuisines = Cuisine.all
     @recipe = Recipe.find(params[:id])
+
+    if @recipe.user != current_user
+      redirect_to root_path
+    end
   end
 
   def update
