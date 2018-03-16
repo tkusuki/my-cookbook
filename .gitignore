@@ -18,7 +18,7 @@
 !/tmp/.keep
 
 # Ignore images
-/public/system/recipes/photos*
+/public/system/recipes/photos/*
 
 /node_modules
 /yarn-error.log
