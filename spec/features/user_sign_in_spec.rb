@@ -14,7 +14,7 @@ feature 'User sign in' do
     click_on 'Login'
 
     # expectativas do usuário apos a ação
-    expect(page).to have_css('nav', text: 'Olá thais@email.com')
+    expect(page).to have_css('nav', text: "Olá #{user.email}")
     expect(page).not_to have_link('Entrar')
     expect(page).to have_link('Sair')
   end
@@ -24,11 +24,8 @@ feature 'User sign in' do
     user = create(:user)
 
     # simula a ação do usuário
+    login_as(user)
     visit root_path
-    click_on 'Entrar'
-    fill_in 'Email', with: user.email
-    fill_in 'Senha', with: user.password
-    click_on 'Login'
     click_on 'Sair'
 
     # expectativas do usuário apos a ação
