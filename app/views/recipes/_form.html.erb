@@ -1,4 +1,4 @@
-<%= form_for(@recipe) do |f| %>
+<%= form_for @recipe , html: { multipart: true } do |f| %>
   <div>
     <%= f.label :title, 'Título '%>
     <%= f.text_field :title %>
@@ -27,6 +27,10 @@
   <div>
     <%= f.label :method, 'Como Preparar '%>
     <%= f.text_area :method %>
+  </div>
+  <div>
+    <%= f.label :photo, 'Foto '%>
+    <%= f.file_field :photo %>
   </div>
   <div>
     <%= f.submit 'Enviar' %>
