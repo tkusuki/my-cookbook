@@ -47,7 +47,7 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     recipe_params = params.require(:recipe).permit(:title, :recipe_type_id,
-                  :cuisine_id, :difficulty, :cook_time, :ingredients, :method)
+                  :cuisine_id, :difficulty, :cook_time, :ingredients, :method, :photo)
 
     if @recipe.update(recipe_params)
       redirect_to @recipe
