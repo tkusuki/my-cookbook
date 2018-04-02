@@ -1,43 +1,46 @@
-<h1>My CookBook</h1>
-<p>
-  Bem-vindo ao maior livro de receitas online
-</p>
-<p>
-  <%= link_to "Enviar uma receita", new_recipe_path %>  |
-  <%= link_to "Cadastrar uma cozinha", new_cuisine_path %>  |
-  <%= link_to "Cadastrar um tipo de receita", new_recipe_type_path %>
-</p>
-<hr>
+<div class="container">
+  <h1>My CookBook</h1>
+  <p>
+    Bem-vindo ao maior livro de receitas online
+  </p>
+  <p>
+    <%= link_to "Enviar uma receita", new_recipe_path %>  |
+    <%= link_to "Cadastrar uma cozinha", new_cuisine_path %>  |
+    <%= link_to "Cadastrar um tipo de receita", new_recipe_type_path %>
+  </p>
+  <hr>
 
-<%= form_tag search_recipes_path, method: :get do %>
-  <%= label_tag(:search, "Busca:") %>
-  <%= text_field_tag(:search) %>
-  <%= submit_tag("Buscar") %>
-<% end %>
-
-<hr>
-
-<h2>Cozinha</h2>
-<ul>
-  <% @cuisines.each do |cuisine| %>
-  <li><%= link_to cuisine.name, cuisine_path(cuisine.id) %></li>
+  <%= form_tag search_recipes_path, method: :get do %>
+    <%= label_tag(:search, "Busca:") %>
+    <%= text_field_tag(:search) %>
+    <%= submit_tag("Buscar") %>
   <% end %>
-</ul>
 
-<h2>Tipo</h2>
-<ul>
-  <% @recipe_types.each do |type| %>
-  <li><%= link_to type.name, recipe_type_path(type.id) %></li>
-  <% end %>
-</ul>
+  <hr>
 
-<hr>
-<p>
-  <%= flash[:notice] %>
-</p>
-<p>
-  <% @recipes_latest.each do |recipe| %>
-    <%= render recipe %>
-  <% end %>
-</p>
-<p><%= link_to "Ver todas as receitas", recipes_path %></p>
+  <h2>Cozinha</h2>
+  <ul>
+    <% @cuisines.each do |cuisine| %>
+    <li><%= link_to cuisine.name, cuisine_path(cuisine.id) %></li>
+    <% end %>
+  </ul>
+
+  <h2>Tipo</h2>
+  <ul>
+    <% @recipe_types.each do |type| %>
+    <li><%= link_to type.name, recipe_type_path(type.id) %></li>
+    <% end %>
+  </ul>
+
+  <hr>
+  <p>
+    <%= flash[:notice] %>
+  </p>
+  <p>
+    <% @recipes_latest.each do |recipe| %>
+      <%= render recipe %>
+    <% end %>
+  </p>
+  <p><%= link_to "Ver todas as receitas", recipes_path %></p>
+
+</div>
