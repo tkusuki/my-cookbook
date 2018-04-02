@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature 'User sign in' do
   scenario 'successfully' do
-
     # cria os dados necessários
     user = create(:user)
 
@@ -18,7 +17,6 @@ feature 'User sign in' do
     expect(page).not_to have_link('Entrar')
     expect(page).to have_link('Sair')
   end
-
   scenario 'and sign out' do
     # cria os dados necessários
     user = create(:user)
@@ -32,7 +30,5 @@ feature 'User sign in' do
     expect(page).to have_css('p', text: 'Saiu com sucesso')
     expect(page).to have_link('Entrar')
     expect(page).not_to have_link('Sair')
-
   end
-
 end

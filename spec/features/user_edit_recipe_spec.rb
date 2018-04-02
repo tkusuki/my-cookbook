@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'User update recipe' do
   scenario 'successfully' do
-    #cria os dados necessários
+    # cria os dados necessários
     user = create(:user)
     arabian_cuisine = Cuisine.create(name: 'Arabe')
     brazilian_cuisine = Cuisine.create(name: 'Brasileira')
@@ -11,11 +11,13 @@ feature 'User update recipe' do
     main_type = RecipeType.create(name: 'Prato Principal')
     dessert_type = RecipeType.create(name: 'Sobremesa')
 
-    recipe = Recipe.create(user: user, title: 'Bolodecenoura', recipe_type: main_type,
-                          cuisine: arabian_cuisine, difficulty: 'Médio',
-                          cook_time: 50,
-                          ingredients: 'Farinha, açucar, cenoura',
-                          method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+    recipe = Recipe.create(
+      user: user, title: 'Bolodecenoura', recipe_type: main_type,
+      cuisine: arabian_cuisine, difficulty: 'Médio', cook_time: 50,
+      ingredients: 'Farinha, açucar, cenoura',
+      method: 'Cozinhe a cenoura, corte em pedaços pequenos,
+              misture com o restante dos ingredientes'
+    )
 
     # simula a ação do usuário
     login_as(user)
@@ -28,8 +30,10 @@ feature 'User update recipe' do
     select 'Sobremesa', from: 'Tipo da Receita'
     fill_in 'Dificuldade', with: 'Médio'
     fill_in 'Tempo de Preparo', with: '45'
-    fill_in 'Ingredientes', with: 'Cenoura, farinha, ovo, oleo de soja e chocolate'
-    fill_in 'Como Preparar', with: 'Faça um bolo e uma cobertura de chocolate'
+    fill_in 'Ingredientes', with: 'Cenoura, farinha, ovo, oleo de soja e
+                                  chocolate'
+    fill_in 'Como Preparar',
+      with: 'Faça um bolo e uma cobertura de chocolate'
 
     click_on 'Enviar'
 
@@ -39,12 +43,13 @@ feature 'User update recipe' do
     expect(page).to have_css('p', text: 'Brasileira')
     expect(page).to have_css('p', text: 'Médio')
     expect(page).to have_css('p', text: '45 minutos')
-    expect(page).to have_css('p', text:  'Cenoura, farinha, ovo, oleo de soja e chocolate')
-    expect(page).to have_css('p', text: 'Faça um bolo e uma cobertura de chocolate')
+    expect(page).to have_css('p', text:
+      'Cenoura, farinha, ovo, oleo de soja e chocolate')
+    expect(page).to have_css('p', text:
+      'Faça um bolo e uma cobertura de chocolate')
   end
-
   scenario 'and all fields must be filled' do
-    #cria os dados necessários, nesse caso não vamos criar dados no banco
+    # cria os dados necessários, nesse caso não vamos criar dados no banco
     user = create(:user)
 
     arabian_cuisine = Cuisine.create(name: 'Arabe')
@@ -54,11 +59,12 @@ feature 'User update recipe' do
     main_type = RecipeType.create(name: 'Prato Principal')
     dessert_type = RecipeType.create(name: 'Sobremesa')
 
-    recipe = Recipe.create(user: user, title: 'Bolodecenoura', recipe_type: main_type,
-                          cuisine: arabian_cuisine, difficulty: 'Médio',
-                          cook_time: 50,
-                          ingredients: 'Farinha, açucar, cenoura',
-                          method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+    recipe = Recipe.create(
+      user: user, title: 'Bolodecenoura', recipe_type: main_type,
+      cuisine: arabian_cuisine, difficulty: 'Médio', cook_time: 50,
+      ingredients: 'Farinha, açucar, cenoura',
+      method: 'Cozinhe a cenoura, corte em pedaços pequenos,
+      misture com o restante dos ingredientes')
 
     # simula a ação do usuário
     login_as(user)
@@ -76,19 +82,20 @@ feature 'User update recipe' do
 
     expect(page).to have_content('Você deve informar todos os dados da receita')
   end
-
   scenario 'but is not owner of recipe' do
 
-    #cria os dados necessários, nesse caso não vamos criar dados no banco
+    # cria os dados necessários, nesse caso não vamos criar dados no banco
     user = create(:user)
     another_user = create(:user, email: 'another_user@email.com')
 
     cuisine = Cuisine.create(name: 'Italiana')
     recipe_type = RecipeType.create(name: 'Entrada')
-    recipe = Recipe.create(user: user, title: 'Bruschetta', recipe_type: recipe_type,
-              cuisine: cuisine, difficulty: 'Fácil', cook_time: 30,
-              ingredients: 'Pão italiano, tomates, cebola, azeite',
-              method: 'Pique o tomate e a cebola, monte no pão cortado e leve ao forno')
+    recipe = Recipe.create(
+      user: user, title: 'Bruschetta', recipe_type: recipe_type,
+      cuisine: cuisine, difficulty: 'Fácil', cook_time: 30,
+      ingredients: 'Pão italiano, tomates, cebola, azeite',
+      method: 'Pique o tomate e a cebola, monte no pão cortado e leve ao forno'
+    )
 
     # simula a ação do usuário
     login_as(another_user)

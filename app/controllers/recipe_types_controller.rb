@@ -14,8 +14,7 @@ class RecipeTypesController < ApplicationController
     if @recipe_type.save
       redirect_to @recipe_type
     else
-      render "new"
+      render 'new'
     end
   end
-
 end
