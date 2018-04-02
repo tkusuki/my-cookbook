@@ -18,9 +18,10 @@
 !/tmp/.keep
 
 # Ignore images
-/public/system/recipes/*
+/public/system/recipes/**
 
 /node_modules
 /yarn-error.log
 
 .byebug_history
+coverage
