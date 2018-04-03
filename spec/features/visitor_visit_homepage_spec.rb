@@ -69,4 +69,42 @@ feature 'Visitor visit homepage' do
     expect(page).to have_css('li', text: another_recipe.difficulty)
     expect(page).to have_css('li', text: "#{another_recipe.cook_time} minutos")
   end
+  scenario 'and view all registered recipes' do
+    # cria os dados necessarios
+    user = User.create(email: 'thais@email.com', password: '12345678')
+    cuisine = Cuisine.create(name: 'Brasileira')
+    recipe_type = RecipeType.create(name: 'Sobremesa')
+    recipe = Recipe.create(
+      user: user, title: 'Bolo de cenoura', recipe_type: recipe_type,
+      cuisine: cuisine, difficulty: 'Médio',
+      ingredients: 'Cenoura, acucar, oleo e chocolate',
+      method: 'Misturar tudo, bater e assar', cook_time: 60
+    )
+
+    another_recipe_type = RecipeType.create(name: 'Prato Principal')
+    another_recipe = Recipe.create(
+      user: user, title: 'Feijoada', recipe_type: another_recipe_type,
+      cuisine: cuisine, difficulty: 'Difícil',
+      ingredients: 'Feijao, paio, carne seca',
+      method: 'Cozinhar o feijao e refogar com as carnes já preparadas',
+      cook_time: 90
+    )
+
+    # simula a acao do usuario
+    visit root_path
+    click_on 'Ver todas as receitas'
+
+    # expectativas do usuario apos a acao
+    expect(page).to have_css('h1', text: recipe.title)
+    expect(page).to have_css('li', text: recipe.recipe_type.name)
+    expect(page).to have_css('li', text: recipe.cuisine.name)
+    expect(page).to have_css('li', text: recipe.difficulty)
+    expect(page).to have_css('li', text: "#{recipe.cook_time} minutos")
+
+    expect(page).to have_css('h1', text: another_recipe.title)
+    expect(page).to have_css('li', text: another_recipe.recipe_type.name)
+    expect(page).to have_css('li', text: another_recipe.cuisine.name)
+    expect(page).to have_css('li', text: another_recipe.difficulty)
+    expect(page).to have_css('li', text: "#{another_recipe.cook_time} minutos")
+  end
 end
