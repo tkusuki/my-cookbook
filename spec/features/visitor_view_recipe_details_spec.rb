@@ -2,23 +2,24 @@ require 'rails_helper'
 
 feature 'Visitor view recipe details' do
   scenario 'successfully' do
-    # cria os dados necessários
+    # cria os dados necessarios
     user = create(:user)
     cuisine = Cuisine.create(name: 'Brasileira')
     recipe_type = RecipeType.create(name: 'Sobremesa')
+    method = 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o '
+    method << 'restante dos ingredientes'
     recipe = Recipe.create(
       user: user, title: 'Bolo de cenoura', recipe_type: recipe_type,
       cuisine: cuisine, difficulty: 'Médio', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
-      method:
-      'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes'
+      method: method
     )
 
-    # simula a ação do usuário
+    # simula a acao do usuario
     visit root_path
     click_on recipe.title
 
-    # expectativas do usuário após a ação
+    # expectativas do usuario apos a acao
     expect(page).to have_css('h1', text: recipe.title)
     expect(page).to have_css('h3', text: 'Detalhes')
     expect(page).to have_css('p', text: recipe.recipe_type.name)
@@ -34,7 +35,7 @@ feature 'Visitor view recipe details' do
     expect(page).not_to have_link('Remover')
   end
   scenario 'and return to recipe list' do
-    # cria os dados necessários
+    # cria os dados necessarios
     user = create(:user)
     cuisine = Cuisine.create(name: 'Brasileira')
     recipe_type = RecipeType.create(name: 'Sobremesa')
@@ -42,11 +43,11 @@ feature 'Visitor view recipe details' do
       user: user, title: 'Bolo de cenoura', recipe_type:  recipe_type,
       cuisine: cuisine, difficulty: 'Médio', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
-      method:
-      'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes'
+      method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o
+      restante dos ingredientes'
     )
 
-    # simula a ação do usuário
+    # simula a acao do usuario
     visit root_path
     click_on recipe.title
     click_on 'Voltar'
@@ -64,15 +65,15 @@ feature 'Visitor view recipe details' do
       user: user, title: 'Bolo de cenoura', recipe_type:  recipe_type,
       cuisine: cuisine, difficulty: 'Médio', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
-      method: 'Cozinhe a cenoura, corte em pedaços pequenos,
-      misture com o restante dos ingredientes'
+      method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o
+      restante dos ingredientes'
     )
-    # simula a ação do usuário
+    # simula a acao do usuario
     login_as(another_user)
     visit root_path
     click_on recipe.title
 
-    # expectativas do usuário após a ação
+    # expectativas do usuario apos a acao
     expect(page).not_to have_link('Editar')
     expect(page).not_to have_link('Remover')
   end

@@ -21,3 +21,5 @@ AllCops:
   TargetRubyVersion: 2.5
 Metrics/BlockLength:
   ExcludedMethods: ['describe', 'context', 'feature', 'scenario', 'let']
+Style/FrozenStringLiteralComment:
+  Enabled: false

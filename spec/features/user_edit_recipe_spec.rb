@@ -2,16 +2,16 @@ require 'rails_helper'
 
 feature 'User update recipe' do
   scenario 'successfully' do
-    # cria os dados necessários
+    # cria os dados necessarios
     user = create(:user)
     arabian_cuisine = Cuisine.create(name: 'Arabe')
-    brazilian_cuisine = Cuisine.create(name: 'Brasileira')
+    Cuisine.create(name: 'Brasileira')
 
-    appetizer_type = RecipeType.create(name: 'Entrada')
+    RecipeType.create(name: 'Entrada')
     main_type = RecipeType.create(name: 'Prato Principal')
-    dessert_type = RecipeType.create(name: 'Sobremesa')
+    RecipeType.create(name: 'Sobremesa')
 
-    recipe = Recipe.create(
+    Recipe.create(
       user: user, title: 'Bolodecenoura', recipe_type: main_type,
       cuisine: arabian_cuisine, difficulty: 'Médio', cook_time: 50,
       ingredients: 'Farinha, açucar, cenoura',
@@ -19,7 +19,7 @@ feature 'User update recipe' do
               misture com o restante dos ingredientes'
     )
 
-    # simula a ação do usuário
+    # simula a acao do usuario
     login_as(user)
     visit root_path
     click_on 'Bolodecenoura'
@@ -30,10 +30,10 @@ feature 'User update recipe' do
     select 'Sobremesa', from: 'Tipo da Receita'
     fill_in 'Dificuldade', with: 'Médio'
     fill_in 'Tempo de Preparo', with: '45'
-    fill_in 'Ingredientes', with: 'Cenoura, farinha, ovo, oleo de soja e
-                                  chocolate'
-    fill_in 'Como Preparar',
-      with: 'Faça um bolo e uma cobertura de chocolate'
+    fill_in 'Ingredientes', with:
+      'Cenoura, farinha, ovo, oleo de soja e chocolate'
+    fill_in 'Como Preparar', with:
+      'Faça um bolo e uma cobertura de chocolate'
 
     click_on 'Enviar'
 
@@ -49,24 +49,25 @@ feature 'User update recipe' do
       'Faça um bolo e uma cobertura de chocolate')
   end
   scenario 'and all fields must be filled' do
-    # cria os dados necessários, nesse caso não vamos criar dados no banco
+    # cria os dados necessarios
     user = create(:user)
 
     arabian_cuisine = Cuisine.create(name: 'Arabe')
-    brazilian_cuisine = Cuisine.create(name: 'Brasileira')
+    Cuisine.create(name: 'Brasileira')
 
-    appetizer_type = RecipeType.create(name: 'Entrada')
+    RecipeType.create(name: 'Entrada')
     main_type = RecipeType.create(name: 'Prato Principal')
-    dessert_type = RecipeType.create(name: 'Sobremesa')
+    RecipeType.create(name: 'Sobremesa')
 
-    recipe = Recipe.create(
+    Recipe.create(
       user: user, title: 'Bolodecenoura', recipe_type: main_type,
       cuisine: arabian_cuisine, difficulty: 'Médio', cook_time: 50,
       ingredients: 'Farinha, açucar, cenoura',
       method: 'Cozinhe a cenoura, corte em pedaços pequenos,
-      misture com o restante dos ingredientes')
+      misture com o restante dos ingredientes'
+    )
 
-    # simula a ação do usuário
+    # simula a acao do usuario
     login_as(user)
     visit root_path
     click_on 'Bolodecenoura'
@@ -83,11 +84,9 @@ feature 'User update recipe' do
     expect(page).to have_content('Você deve informar todos os dados da receita')
   end
   scenario 'but is not owner of recipe' do
-
-    # cria os dados necessários, nesse caso não vamos criar dados no banco
+    # cria os dados necessarios
     user = create(:user)
     another_user = create(:user, email: 'another_user@email.com')
-
     cuisine = Cuisine.create(name: 'Italiana')
     recipe_type = RecipeType.create(name: 'Entrada')
     recipe = Recipe.create(
@@ -97,11 +96,11 @@ feature 'User update recipe' do
       method: 'Pique o tomate e a cebola, monte no pão cortado e leve ao forno'
     )
 
-    # simula a ação do usuário
+    # simula a acao do usuario
     login_as(another_user)
     visit edit_recipe_path(recipe)
 
-    # expectativas de rota após a ação
+    # expectativas de rota apos a acao
     expect(current_path).to eq(root_path)
   end
 end

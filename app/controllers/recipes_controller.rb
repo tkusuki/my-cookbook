@@ -6,11 +6,9 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find_by(id: params[:id])
-
-    if @recipe.nil?
-      flash[:notice] = 'Receita não encontrada'
-      redirect_to root_path
-    end
+    return unless @recipe.nil?
+    flash[:notice] = 'Receita não encontrada'
+    redirect_to root_path
   end
 
   def new
