@@ -4,12 +4,12 @@ require 'rails_helper'
 feature 'Visitor view recipes by type' do
   scenario 'from home page' do
     # cria os dados necessarios
-    user = User.create(email: 'thais@email.com', password: '12345678')
-    cuisine = Cuisine.create(name: 'Brasileira')
-    recipe_type = RecipeType.create(name: 'Sobremesa')
+    cuisine = create(:cuisine, name: 'Brasileira')
+    recipe_type = create(:recipe_type, name: 'Sobremesa')
 
-    recipe = Recipe.create(
-      user: user, title: 'Bolo de cenoura', recipe_type: recipe_type,
+    recipe = create(
+      :recipe,
+      title: 'Bolo de cenoura', recipe_type: recipe_type,
       cuisine: cuisine, difficulty: 'Médio', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
       method: 'Cozinhe a cenoura, corte em pedaços pequenos,
@@ -30,10 +30,11 @@ feature 'Visitor view recipes by type' do
   end
   scenario 'and view only recipes from same type' do
     # cria os dados necessarios
-    user = User.create(email: 'thais@email.com', password: '12345678')
-    brazilian_cuisine = Cuisine.create(name: 'Brasileira')
-    dessert_recipe_type = RecipeType.create(name: 'Sobremesa')
-    dessert_recipe = Recipe.create(
+    user = create(:user)
+    brazilian_cuisine = create(:cuisine, name: 'Brasileira')
+    dessert_recipe_type = create(:recipe_type, name: 'Sobremesa')
+    dessert_recipe = create(
+      :recipe,
       user: user, title: 'Bolo de cenoura', recipe_type: dessert_recipe_type,
       cuisine: brazilian_cuisine, difficulty: 'Médio', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
@@ -41,9 +42,10 @@ feature 'Visitor view recipes by type' do
               restante dos ingredientes'
     )
 
-    italian_cuisine = Cuisine.create(name: 'Italiana')
-    main_recipe_type = RecipeType.create(name: 'Prato Principal')
-    main_recipe = Recipe.create(
+    italian_cuisine = create(:cuisine, name: 'Italiana')
+    main_recipe_type = create(:recipe_type)
+    main_recipe = create(
+      :recipe,
       user: user, title: 'Macarrão Carbonara', recipe_type: main_recipe_type,
       cuisine: italian_cuisine, difficulty: 'Difícil', cook_time: 30,
       ingredients: 'Massa, ovos, bacon',
@@ -70,18 +72,18 @@ feature 'Visitor view recipes by type' do
   end
   scenario 'and type has no recipe' do
     # cria os dados necessarios
-    user = User.create(email: 'thais@email.com', password: '12345678')
-    brazilian_cuisine = Cuisine.create(name: 'Brasileira')
-    recipe_type = RecipeType.create(name: 'Sobremesa')
-    recipe = Recipe.create(
-      user: user, title: 'Bolo de cenoura', recipe_type: recipe_type,
+    brazilian_cuisine = create(:cuisine, name: 'Brasileira')
+    recipe_type = create(:recipe_type, name: 'Sobremesa')
+    recipe = create(
+      :recipe,
+      title: 'Bolo de cenoura', recipe_type: recipe_type,
       cuisine: brazilian_cuisine, difficulty: 'Médio', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
       method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o
               restante dos ingredientes'
     )
 
-    main_dish_type = RecipeType.create(name: 'Prato Principal')
+    main_dish_type = create(:recipe_type)
     # simula a acao do usuario
     visit root_path
     click_on main_dish_type.name

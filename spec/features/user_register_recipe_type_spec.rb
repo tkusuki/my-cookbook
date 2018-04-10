@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'User register recipe_jype' do
+feature 'User register recipe_type' do
   scenario 'successfully' do
     visit new_recipe_type_path
     fill_in 'Nome', with: 'Sobremesa'

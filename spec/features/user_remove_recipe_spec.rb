@@ -5,9 +5,10 @@ feature 'User remove recipe' do
     # cria os dados necessarios
     user = create(:user)
 
-    cuisine = Cuisine.create(name: 'Italiana')
-    recipe_type = RecipeType.create(name: 'Entrada')
-    recipe = Recipe.create(
+    cuisine = create(:cuisine, name: 'Italiana')
+    recipe_type = create(:recipe_type, name: 'Entrada')
+    recipe = create(
+      :recipe,
       user: user, title: 'Bruschetta', recipe_type: recipe_type,
       cuisine: cuisine, difficulty: 'Fácil', cook_time: 30,
       ingredients: 'Pão italiano, tomates, cebola, azeite',
@@ -29,9 +30,10 @@ feature 'User remove recipe' do
   scenario 'and try to remove the same recipe again' do
     # cria os dados necessarios
     user = create(:user)
-    cuisine = Cuisine.create(name: 'Italiana')
-    recipe_type = RecipeType.create(name: 'Entrada')
-    recipe = Recipe.create(
+    cuisine = create(:cuisine, name: 'Italiana')
+    recipe_type = create(:recipe_type, name: 'Entrada')
+    recipe = create(
+      :recipe,
       user: user, title: 'Bruschetta', recipe_type: recipe_type,
       cuisine: cuisine, difficulty: 'Fácil', cook_time: 30,
       ingredients: 'Pão italiano, tomates, cebola, azeite',

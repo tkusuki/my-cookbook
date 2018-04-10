@@ -4,14 +4,15 @@ feature 'User update recipe' do
   scenario 'successfully' do
     # cria os dados necessarios
     user = create(:user)
-    arabian_cuisine = Cuisine.create(name: 'Arabe')
-    Cuisine.create(name: 'Brasileira')
+    arabian_cuisine = create(:cuisine, name: 'Arabe')
+    create(:cuisine, name: 'Brasileira')
 
-    RecipeType.create(name: 'Entrada')
-    main_type = RecipeType.create(name: 'Prato Principal')
-    RecipeType.create(name: 'Sobremesa')
+    main_type = create(:recipe_type)
+    create(:recipe_type, name: 'Entrada')
+    create(:recipe_type, name: 'Sobremesa')
 
-    Recipe.create(
+    create(
+      :recipe,
       user: user, title: 'Bolodecenoura', recipe_type: main_type,
       cuisine: arabian_cuisine, difficulty: 'Médio', cook_time: 50,
       ingredients: 'Farinha, açucar, cenoura',
@@ -52,14 +53,15 @@ feature 'User update recipe' do
     # cria os dados necessarios
     user = create(:user)
 
-    arabian_cuisine = Cuisine.create(name: 'Arabe')
-    Cuisine.create(name: 'Brasileira')
+    arabian_cuisine = create(:cuisine, name: 'Arabe')
+    create(:cuisine, name: 'Brasileira')
 
-    RecipeType.create(name: 'Entrada')
-    main_type = RecipeType.create(name: 'Prato Principal')
-    RecipeType.create(name: 'Sobremesa')
+    main_type = create(:recipe_type)
+    create(:recipe_type, name: 'Entrada')
+    create(:recipe_type, name: 'Sobremesa')
 
-    Recipe.create(
+    create(
+      :recipe,
       user: user, title: 'Bolodecenoura', recipe_type: main_type,
       cuisine: arabian_cuisine, difficulty: 'Médio', cook_time: 50,
       ingredients: 'Farinha, açucar, cenoura',
@@ -87,9 +89,10 @@ feature 'User update recipe' do
     # cria os dados necessarios
     user = create(:user)
     another_user = create(:user, email: 'another_user@email.com')
-    cuisine = Cuisine.create(name: 'Italiana')
-    recipe_type = RecipeType.create(name: 'Entrada')
-    recipe = Recipe.create(
+    cuisine = create(:cuisine, name: 'Italiana')
+    recipe_type = create(:recipe_type, name: 'Entrada')
+    recipe = create(
+      :recipe,
       user: user, title: 'Bruschetta', recipe_type: recipe_type,
       cuisine: cuisine, difficulty: 'Fácil', cook_time: 30,
       ingredients: 'Pão italiano, tomates, cebola, azeite',

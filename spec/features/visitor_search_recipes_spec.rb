@@ -3,12 +3,13 @@ require 'rails_helper'
 feature 'Visitor search for recipes' do
   scenario 'from home page' do
     # cria os dados necessarios
-    user = User.create(email: 'thais@email.com', password: '12345678')
-    cuisine = Cuisine.create(name: 'Brasileira')
-    recipe_type = RecipeType.create(name: 'Sobremesa')
-    another_recipe_type = RecipeType.create(name: 'Entrada')
+    user = create(:user)
+    cuisine = create(:cuisine, name: 'Brasileira')
+    recipe_type = create(:recipe_type, name: 'Sobremesa')
+    another_recipe_type = create(:recipe_type, name: 'Entrada')
 
-    recipe = Recipe.create(
+    recipe = create(
+      :recipe,
       user: user, title: 'Bolo de cenoura', recipe_type: recipe_type,
       cuisine: cuisine, difficulty: 'Médio', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
@@ -16,7 +17,8 @@ feature 'Visitor search for recipes' do
       restante dos ingredientes'
     )
 
-    another_recipe = Recipe.create(
+    another_recipe = create(
+      :recipe,
       user: user, title: 'Salada de cenoura', recipe_type: another_recipe_type,
       cuisine: cuisine, difficulty: 'Facil',  cook_time: 60,
       ingredients: 'Cenoura e legumes',
@@ -40,11 +42,12 @@ feature 'Visitor search for recipes' do
   end
   scenario 'and navigate to recipe details' do
     # cria os dados necessarios previamente
-    user = User.create(email: 'thais@email.com', password: '12345678')
-    cuisine = Cuisine.create(name: 'Brasileira')
-    recipe_type = RecipeType.create(name: 'Sobremesa')
+    user = create(:user)
+    cuisine = create(:cuisine, name: 'Brasileira')
+    recipe_type = create(:recipe_type, name: 'Sobremesa')
 
-    recipe = Recipe.create(
+    recipe = create(
+      :recipe,
       user: user, title: 'Bolo de cenoura', recipe_type: recipe_type,
       cuisine: cuisine, difficulty: 'Médio', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
@@ -63,11 +66,12 @@ feature 'Visitor search for recipes' do
   end
   scenario 'and find all matches' do
     # cria os dados necessarios previamente
-    user = User.create(email: 'thais@email.com', password: '12345678')
-    cuisine = Cuisine.create(name: 'Brasileira')
-    recipe_type = RecipeType.create(name: 'Sobremesa')
+    user = create(:user)
+    cuisine = create(:cuisine, name: 'Brasileira')
+    recipe_type = create(:recipe_type, name: 'Sobremesa')
 
-    recipe = Recipe.create(
+    recipe = create(
+      :recipe,
       user: user, title: 'Bolo de cenoura', recipe_type: recipe_type,
       cuisine: cuisine, difficulty: 'Médio', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
@@ -75,7 +79,8 @@ feature 'Visitor search for recipes' do
       restante dos ingredientes'
     )
 
-    another_recipe = Recipe.create(
+    another_recipe = create(
+      :recipe,
       user: user, title: 'Bolo de chocolate', recipe_type: recipe_type,
       cuisine: cuisine, difficulty: 'Médio', cook_time: 60,
       ingredients: 'Farinha, açucar, cacau, ovo',
@@ -106,14 +111,15 @@ feature 'Visitor search for recipes' do
 
   scenario 'and no results found' do
     # cria os dados necessarios
-    user = User.create(email: 'thais@email.com', password: '12345678')
-    cuisine = Cuisine.create(name: 'Brasileira')
-    another_cuisine = Cuisine.create(name: 'Japonesa')
+    user = create(:user)
+    cuisine = create(:cuisine, name: 'Brasileira')
+    another_cuisine = create(:cuisine, name: 'Japonesa')
 
-    recipe_type = RecipeType.create(name: 'Sobremesa')
-    another_recipe_type = RecipeType.create(name: 'Entrada')
+    recipe_type = create(:recipe_type, name: 'Sobremesa')
+    another_recipe_type = create(:recipe_type, name: 'Entrada')
 
-    recipe = Recipe.create(
+    recipe = create(
+      :recipe,
       user: user, title: 'Bolo de cenoura', recipe_type: recipe_type,
       cuisine: cuisine, difficulty: 'Médio', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
@@ -121,7 +127,8 @@ feature 'Visitor search for recipes' do
       restante dos ingredientes'
     )
 
-    another_recipe = Recipe.create(
+    another_recipe = create(
+      :recipe,
       user: user, title: 'Temaki', recipe_type: another_recipe_type,
       cuisine: another_cuisine, difficulty: 'Médio', cook_time: 60,
       ingredients: 'Arroz, nori, salmão e cebolinha',

@@ -4,11 +4,12 @@ feature 'Visitor view recipe details' do
   scenario 'successfully' do
     # cria os dados necessarios
     user = create(:user)
-    cuisine = Cuisine.create(name: 'Brasileira')
-    recipe_type = RecipeType.create(name: 'Sobremesa')
+    cuisine = create(:cuisine, name: 'Brasileira')
+    recipe_type = create(:recipe_type, name: 'Sobremesa')
     method = 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o '
     method << 'restante dos ingredientes'
-    recipe = Recipe.create(
+    recipe = create(
+      :recipe,
       user: user, title: 'Bolo de cenoura', recipe_type: recipe_type,
       cuisine: cuisine, difficulty: 'Médio', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
@@ -37,9 +38,10 @@ feature 'Visitor view recipe details' do
   scenario 'and return to recipe list' do
     # cria os dados necessarios
     user = create(:user)
-    cuisine = Cuisine.create(name: 'Brasileira')
-    recipe_type = RecipeType.create(name: 'Sobremesa')
-    recipe = Recipe.create(
+    cuisine = create(:cuisine, name: 'Brasileira')
+    recipe_type = create(:recipe_type, name: 'Sobremesa')
+    recipe = create(
+      :recipe,
       user: user, title: 'Bolo de cenoura', recipe_type:  recipe_type,
       cuisine: cuisine, difficulty: 'Médio', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
@@ -59,9 +61,10 @@ feature 'Visitor view recipe details' do
     user = create(:user)
     another_user = create(:user, email: 'another_user@email.com')
 
-    cuisine = Cuisine.create(name: 'Brasileira')
-    recipe_type = RecipeType.create(name: 'Sobremesa')
-    recipe = Recipe.create(
+    cuisine = create(:cuisine, name: 'Brasileira')
+    recipe_type = create(:recipe_type, name: 'Sobremesa')
+    recipe = create(
+      :recipe,
       user: user, title: 'Bolo de cenoura', recipe_type:  recipe_type,
       cuisine: cuisine, difficulty: 'Médio', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
