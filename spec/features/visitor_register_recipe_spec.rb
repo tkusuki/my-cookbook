@@ -19,14 +19,14 @@ feature 'Visitor register recipe' do
     fill_in 'Título', with: 'Tabule'
     select 'Arabe', from: 'Cozinha'
     select 'Entrada', from: 'Tipo da Receita'
-    fill_in 'Dificuldade', with: 'Fácil'
+    select 'medium', from: 'Dificuldade'
     fill_in 'Tempo de Preparo', with: '45'
     fill_in 'Ingredientes', with:
       'Trigo para quibe, cebola, tomate picado, azeite, salsinha'
     fill_in 'Como Preparar', with:
       'Misturar tudo e servir. Adicione limão a gosto.'
     attach_file('Foto', Rails.root.join('spec', 'support', 'recipe.png'))
-    click_on 'Enviar'
+    click_on 'Criar Receita'
 
     expect(page).to have_css('h1', text: 'Tabule')
     expect(page).to have_css("img[src*='recipe.png']")
@@ -54,11 +54,11 @@ feature 'Visitor register recipe' do
     click_on 'Enviar uma receita'
 
     fill_in 'Título', with: ''
-    fill_in 'Dificuldade', with: ''
+    select 'easy', from: 'Dificuldade'
     fill_in 'Tempo de Preparo', with: ''
     fill_in 'Ingredientes', with: ''
     fill_in 'Como Preparar', with: ''
-    click_on 'Enviar'
+    click_on 'Criar Receita'
 
     expect(page).to have_content('Você deve informar todos os dados da receita')
   end

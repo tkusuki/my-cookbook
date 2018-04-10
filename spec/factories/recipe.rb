@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :recipe do
     title 'Cuscuz Marroquino'
-    difficulty 'Fácil'
+    difficulty 0
     cook_time 40
     ingredients 'Cuscuz marroquino, caldo de legumes, salsinha e uvas-passas'
     add_attribute(:method) do

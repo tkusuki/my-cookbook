@@ -10,7 +10,7 @@ feature 'Visitor view recipes by cuisine' do
     recipe = create(
       :recipe,
       user: user, title: 'Bolo de cenoura', recipe_type: recipe_type,
-      cuisine: cuisine, difficulty: 'Médio', cook_time: 60,
+      cuisine: cuisine, difficulty: 'medium', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
       method: 'Cozinhe a cenoura, corte em pedaços pequenos,
               misture com o restante dos ingredientes'
@@ -36,7 +36,7 @@ feature 'Visitor view recipes by cuisine' do
     create(
       :recipe,
       user: user, title: 'Bolo de cenoura', recipe_type: dessert_recipe_type,
-      cuisine: brazilian_cuisine, difficulty: 'Médio', cook_time: 60,
+      cuisine: brazilian_cuisine, difficulty: 'medium', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
       method: 'Cozinhe a cenoura, corte em pedaços pequenos,
               misture com o restante dos ingredientes'
@@ -47,7 +47,7 @@ feature 'Visitor view recipes by cuisine' do
     italian_recipe = create(
       :recipe,
       user: user, title: 'Macarrão Carbonara', recipe_type: main_recipe_type,
-      cuisine: italian_cuisine, difficulty: 'Difícil', cook_time: 30,
+      cuisine: italian_cuisine, difficulty: 'hard', cook_time: 30,
       ingredients: 'Massa, ovos, bacon',
       method: 'apósFrite o bacon; Cozinhe a massa ate ficar al dent;
               Misture os ovos e o bacon a massa ainda quente;'
@@ -71,7 +71,7 @@ feature 'Visitor view recipes by cuisine' do
     recipe = create(
       :recipe,
       user: user, title: 'Bolo de cenoura', recipe_type: recipe_type,
-      cuisine: brazilian_cuisine, difficulty: 'Médio', cook_time: 60,
+      cuisine: brazilian_cuisine, difficulty: 'medium', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
       method: 'Cozinhe a cenoura, corte em pedaços pequenos,
               misture com o restante dos ingredientes'

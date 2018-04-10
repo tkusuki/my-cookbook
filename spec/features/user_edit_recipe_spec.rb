@@ -14,7 +14,7 @@ feature 'User update recipe' do
     create(
       :recipe,
       user: user, title: 'Bolodecenoura', recipe_type: main_type,
-      cuisine: arabian_cuisine, difficulty: 'Médio', cook_time: 50,
+      cuisine: arabian_cuisine, difficulty: 'medium', cook_time: 50,
       ingredients: 'Farinha, açucar, cenoura',
       method: 'Cozinhe a cenoura, corte em pedaços pequenos,
               misture com o restante dos ingredientes'
@@ -29,7 +29,7 @@ feature 'User update recipe' do
     fill_in 'Título', with: 'Bolo de cenoura'
     select 'Brasileira', from: 'Cozinha'
     select 'Sobremesa', from: 'Tipo da Receita'
-    fill_in 'Dificuldade', with: 'Médio'
+    fill_in 'Dificuldade', with: 'medium'
     fill_in 'Tempo de Preparo', with: '45'
     fill_in 'Ingredientes', with:
       'Cenoura, farinha, ovo, oleo de soja e chocolate'
@@ -63,7 +63,7 @@ feature 'User update recipe' do
     create(
       :recipe,
       user: user, title: 'Bolodecenoura', recipe_type: main_type,
-      cuisine: arabian_cuisine, difficulty: 'Médio', cook_time: 50,
+      cuisine: arabian_cuisine, difficulty: 'medium', cook_time: 50,
       ingredients: 'Farinha, açucar, cenoura',
       method: 'Cozinhe a cenoura, corte em pedaços pequenos,
       misture com o restante dos ingredientes'
@@ -94,7 +94,7 @@ feature 'User update recipe' do
     recipe = create(
       :recipe,
       user: user, title: 'Bruschetta', recipe_type: recipe_type,
-      cuisine: cuisine, difficulty: 'Fácil', cook_time: 30,
+      cuisine: cuisine, difficulty: 'easy', cook_time: 30,
       ingredients: 'Pão italiano, tomates, cebola, azeite',
       method: 'Pique o tomate e a cebola, monte no pão cortado e leve ao forno'
     )

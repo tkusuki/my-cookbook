@@ -9,4 +9,5 @@ class Recipe < ApplicationRecord
   has_attached_file :photo, styles: { thumb: '150x150>' },
                             default_url: '/images/:style/default.png'
   validates_attachment_content_type :photo, content_type: %r{\Aimage\/.*\z}
+  enum difficulty: %i[easy medium hard]
 end

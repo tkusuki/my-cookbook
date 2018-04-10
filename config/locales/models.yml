@@ -1,0 +1,19 @@
+pt-BR:
+  activerecord:
+    models:
+      recipe:
+        one: Receita
+        other: Receitas
+    attributes:
+      recipe:
+        title: Título
+        cook_time: Tempo de Preparo
+        ingredients: Ingredientes
+        method: Como Preparar
+        photo: Foto
+        cuisine_id: Cozinha
+        recipe_type_id: Tipo da Receita
+        difficulty: Dificuldade
+        easy: Fácil
+        medium: Média
+        hard: Difícil

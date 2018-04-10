@@ -10,7 +10,7 @@ feature 'User remove recipe' do
     recipe = create(
       :recipe,
       user: user, title: 'Bruschetta', recipe_type: recipe_type,
-      cuisine: cuisine, difficulty: 'Fácil', cook_time: 30,
+      cuisine: cuisine, difficulty: 'easy', cook_time: 30,
       ingredients: 'Pão italiano, tomates, cebola, azeite',
       method: 'Pique o tomate e a cebola, monte no pão cortado e leve ao forno'
     )
@@ -35,7 +35,7 @@ feature 'User remove recipe' do
     recipe = create(
       :recipe,
       user: user, title: 'Bruschetta', recipe_type: recipe_type,
-      cuisine: cuisine, difficulty: 'Fácil', cook_time: 30,
+      cuisine: cuisine, difficulty: 'easy', cook_time: 30,
       ingredients: 'Pão italiano, tomates, cebola, azeite',
       method: 'Pique o tomate e a cebola, monte no pão cortado e leve ao forno'
     )

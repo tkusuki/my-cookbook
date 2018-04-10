@@ -11,7 +11,7 @@ feature 'Visitor search for recipes' do
     recipe = create(
       :recipe,
       user: user, title: 'Bolo de cenoura', recipe_type: recipe_type,
-      cuisine: cuisine, difficulty: 'Médio', cook_time: 60,
+      cuisine: cuisine, difficulty: 'medium', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
       method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o
       restante dos ingredientes'
@@ -20,7 +20,7 @@ feature 'Visitor search for recipes' do
     another_recipe = create(
       :recipe,
       user: user, title: 'Salada de cenoura', recipe_type: another_recipe_type,
-      cuisine: cuisine, difficulty: 'Facil',  cook_time: 60,
+      cuisine: cuisine, difficulty: 'easy',  cook_time: 60,
       ingredients: 'Cenoura e legumes',
       method: 'Cozinhe a cenoura, misture com os legumes'
     )
@@ -49,7 +49,7 @@ feature 'Visitor search for recipes' do
     recipe = create(
       :recipe,
       user: user, title: 'Bolo de cenoura', recipe_type: recipe_type,
-      cuisine: cuisine, difficulty: 'Médio', cook_time: 60,
+      cuisine: cuisine, difficulty: 'medium', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
       method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o
       restante dos ingredientes'
@@ -73,7 +73,7 @@ feature 'Visitor search for recipes' do
     recipe = create(
       :recipe,
       user: user, title: 'Bolo de cenoura', recipe_type: recipe_type,
-      cuisine: cuisine, difficulty: 'Médio', cook_time: 60,
+      cuisine: cuisine, difficulty: 'medium', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
       method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o
       restante dos ingredientes'
@@ -82,7 +82,7 @@ feature 'Visitor search for recipes' do
     another_recipe = create(
       :recipe,
       user: user, title: 'Bolo de chocolate', recipe_type: recipe_type,
-      cuisine: cuisine, difficulty: 'Médio', cook_time: 60,
+      cuisine: cuisine, difficulty: 'medium', cook_time: 60,
       ingredients: 'Farinha, açucar, cacau, ovo',
       method: 'Bata todos os ingredientes no liquidificador e leve ao forno
       por 40 minutos.'
@@ -121,7 +121,7 @@ feature 'Visitor search for recipes' do
     recipe = create(
       :recipe,
       user: user, title: 'Bolo de cenoura', recipe_type: recipe_type,
-      cuisine: cuisine, difficulty: 'Médio', cook_time: 60,
+      cuisine: cuisine, difficulty: 'medium', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
       method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o
       restante dos ingredientes'
@@ -130,7 +130,7 @@ feature 'Visitor search for recipes' do
     another_recipe = create(
       :recipe,
       user: user, title: 'Temaki', recipe_type: another_recipe_type,
-      cuisine: another_cuisine, difficulty: 'Médio', cook_time: 60,
+      cuisine: another_cuisine, difficulty: 'medium', cook_time: 60,
       ingredients: 'Arroz, nori, salmão e cebolinha',
       method: 'Cozinhe o arroz, corte o salmão e a cebolinha. Coloque tudo
       no nori e enrole em formato de cone'

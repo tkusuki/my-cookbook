@@ -11,7 +11,7 @@ feature 'Visitor view recipe details' do
     recipe = create(
       :recipe,
       user: user, title: 'Bolo de cenoura', recipe_type: recipe_type,
-      cuisine: cuisine, difficulty: 'Médio', cook_time: 60,
+      cuisine: cuisine, difficulty: 'medium', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
       method: method
     )
@@ -43,7 +43,7 @@ feature 'Visitor view recipe details' do
     recipe = create(
       :recipe,
       user: user, title: 'Bolo de cenoura', recipe_type:  recipe_type,
-      cuisine: cuisine, difficulty: 'Médio', cook_time: 60,
+      cuisine: cuisine, difficulty: 'medium', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
       method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o
       restante dos ingredientes'
@@ -66,7 +66,7 @@ feature 'Visitor view recipe details' do
     recipe = create(
       :recipe,
       user: user, title: 'Bolo de cenoura', recipe_type:  recipe_type,
-      cuisine: cuisine, difficulty: 'Médio', cook_time: 60,
+      cuisine: cuisine, difficulty: 'medium', cook_time: 60,
       ingredients: 'Farinha, açucar, cenoura',
       method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o
       restante dos ingredientes'

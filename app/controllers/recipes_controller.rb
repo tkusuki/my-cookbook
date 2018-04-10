@@ -15,6 +15,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
     @recipe_types = RecipeType.all
     @cuisines = Cuisine.all
+    @difficulties = Recipe.difficulties.keys
   end
 
   def create
@@ -26,6 +27,7 @@ class RecipesController < ApplicationController
     else
       @recipe_types = RecipeType.all
       @cuisines = Cuisine.all
+      @difficulties = Recipe.difficulties.keys
       render 'new'
     end
   end
@@ -35,6 +37,7 @@ class RecipesController < ApplicationController
     if @recipe.user == current_user
       @recipe_types = RecipeType.all
       @cuisines = Cuisine.all
+      @difficulties = Recipe.difficulties.keys
     else
       redirect_to root_path
     end
@@ -48,6 +51,7 @@ class RecipesController < ApplicationController
     else
       @recipe_types = RecipeType.all
       @cuisines = Cuisine.all
+      @difficulties = Recipe.difficulties.keys
       render 'edit'
     end
   end

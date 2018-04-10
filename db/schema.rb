@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20180316202239) do
 
   create_table "recipes", force: :cascade do |t|
     t.string "title"
-    t.string "difficulty"
+    t.integer "difficulty", default: 0
     t.integer "cook_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

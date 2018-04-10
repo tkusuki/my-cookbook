@@ -4,7 +4,7 @@ class CreateRecipes < ActiveRecord::Migration[5.1]
       t.string :title
       t.string :recipe_type
       t.string :cuisine
-      t.string :difficulty
+      t.integer :difficulty, default: 0
       t.integer :cook_time
 
       t.timestamps
