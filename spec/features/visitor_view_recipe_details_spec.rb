@@ -25,7 +25,7 @@ feature 'Visitor view recipe details' do
     expect(page).to have_css('h3', text: 'Detalhes')
     expect(page).to have_css('p', text: recipe.recipe_type.name)
     expect(page).to have_css('p', text: recipe.cuisine.name)
-    expect(page).to have_css('p', text: recipe.difficulty)
+    expect(page).to have_css('p', text: 'Médio')
     expect(page).to have_css('p', text: "#{recipe.cook_time} minutos")
     expect(page).to have_css('h3', text: 'Ingredientes')
     expect(page).to have_css('p', text: recipe.ingredients)

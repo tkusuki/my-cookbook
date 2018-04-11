@@ -29,14 +29,14 @@ feature 'User update recipe' do
     fill_in 'Título', with: 'Bolo de cenoura'
     select 'Brasileira', from: 'Cozinha'
     select 'Sobremesa', from: 'Tipo da Receita'
-    fill_in 'Dificuldade', with: 'medium'
+    select 'medium', from: 'Dificuldade'
     fill_in 'Tempo de Preparo', with: '45'
     fill_in 'Ingredientes', with:
       'Cenoura, farinha, ovo, oleo de soja e chocolate'
     fill_in 'Como Preparar', with:
       'Faça um bolo e uma cobertura de chocolate'
 
-    click_on 'Enviar'
+    click_on 'Atualizar Receita'
 
     expect(page).to have_css('h1', text: 'Bolo de cenoura')
     expect(page).to have_css('h3', text: 'Detalhes')
@@ -76,12 +76,11 @@ feature 'User update recipe' do
     click_on 'Editar'
 
     fill_in 'Título', with: ''
-    fill_in 'Dificuldade', with: ''
     fill_in 'Tempo de Preparo', with: ''
     fill_in 'Ingredientes', with: ''
     fill_in 'Como Preparar', with: ''
 
-    click_on 'Enviar'
+    click_on 'Atualizar Receita'
 
     expect(page).to have_content('Você deve informar todos os dados da receita')
   end
