@@ -9,6 +9,8 @@ services:
     volumes:
       - cookbook_db:/var/lib/postgresql/data
   web:
+    volumes:
+      - .:/cookbook
     build: .
     ports:
       - 80:3000
