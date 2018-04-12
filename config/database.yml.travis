@@ -5,7 +5,7 @@ default: &default
   timeout: 5000
   username: travis
   password: travis
-  host: travis
+  host: test_travis
 
 test:
   <<: *default
