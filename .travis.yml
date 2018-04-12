@@ -4,3 +4,7 @@ script:
   - bundle exec rubocop --config .rubocop.yml
 rvm:
   - 2.3.4
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
