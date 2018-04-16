@@ -2,5 +2,12 @@ language: ruby
 script:
   - bundle exec rspec
   - bundle exec rubocop --config .rubocop.yml
+  - bundle-audit check --update
 rvm:
-  - 2.3.4
+  - 2.4.3
+services:
+  - postgresql
+before_script:
+  - gem install bundle-audit
+  - psql -c 'create database test_travis;' -U postgres
+  - cp config/database.yml.travis config/database.yml
