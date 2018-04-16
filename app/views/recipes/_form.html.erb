@@ -14,7 +14,7 @@
   </div>
   <div>
     <%= f.label :difficulty %>
-    <%= f.select :difficulty, @difficulties %>
+    <%= f.select :difficulty, enum_options_for_select(Recipe, :difficulty) %>
   </div>
   <div>
     <%= f.label :cook_time %>

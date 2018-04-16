@@ -14,6 +14,7 @@ pt-BR:
         cuisine_id: Cozinha
         recipe_type_id: Tipo da Receita
         difficulty: Dificuldade
-        easy: "Fácil"
-        medium: "Médio"
-        hard: "Difícil"
+        difficulties:
+          easy: Fácil
+          medium: Médio
+          hard: Difícil

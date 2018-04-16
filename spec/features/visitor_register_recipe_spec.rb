@@ -19,7 +19,7 @@ feature 'Visitor register recipe' do
     fill_in 'Título', with: 'Tabule'
     select 'Arabe', from: 'Cozinha'
     select 'Entrada', from: 'Tipo da Receita'
-    select 'easy', from: 'Dificuldade'
+    select 'Fácil', from: 'Dificuldade'
     fill_in 'Tempo de Preparo', with: '45'
     fill_in 'Ingredientes', with:
       'Trigo para quibe, cebola, tomate picado, azeite, salsinha'
@@ -54,7 +54,7 @@ feature 'Visitor register recipe' do
     click_on 'Enviar uma receita'
 
     fill_in 'Título', with: ''
-    select 'easy', from: 'Dificuldade'
+    select 'Fácil', from: 'Dificuldade'
     fill_in 'Tempo de Preparo', with: ''
     fill_in 'Ingredientes', with: ''
     fill_in 'Como Preparar', with: ''

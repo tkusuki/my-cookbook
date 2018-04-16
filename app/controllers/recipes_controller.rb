@@ -28,7 +28,7 @@ class RecipesController < ApplicationController
     else
       @recipe_types = RecipeType.all
       @cuisines = Cuisine.all
-      @difficulties = Recipe.difficulties.keys
+      @difficulties = Recipe.difficulties
       render 'new'
     end
   end

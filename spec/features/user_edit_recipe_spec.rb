@@ -29,7 +29,7 @@ feature 'User update recipe' do
     fill_in 'Título', with: 'Bolo de cenoura'
     select 'Brasileira', from: 'Cozinha'
     select 'Sobremesa', from: 'Tipo da Receita'
-    select 'medium', from: 'Dificuldade'
+    select 'Médio', from: 'Dificuldade'
     fill_in 'Tempo de Preparo', with: '45'
     fill_in 'Ingredientes', with:
       'Cenoura, farinha, ovo, oleo de soja e chocolate'

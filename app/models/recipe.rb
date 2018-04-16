@@ -1,4 +1,5 @@
 class Recipe < ApplicationRecord
+  include EnumI18nHelper
   belongs_to :user
   belongs_to :cuisine
   belongs_to :recipe_type
@@ -10,4 +11,8 @@ class Recipe < ApplicationRecord
                             default_url: '/images/:style/default.png'
   validates_attachment_content_type :photo, content_type: %r{\Aimage\/.*\z}
   enum difficulty: %i[easy medium hard]
+
+  def t_difficulty
+    enum_l(self, :difficulty)
+  end
 end
