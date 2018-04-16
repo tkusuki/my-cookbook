@@ -25,7 +25,7 @@ feature 'Visitor view recipes by type' do
     expect(page).to have_css('h1', text: recipe.title)
     expect(page).to have_css('li', text: recipe.recipe_type.name)
     expect(page).to have_css('li', text: recipe.cuisine.name)
-    expect(page).to have_css('li', text: recipe.difficulty)
+    expect(page).to have_css('li', text: 'Médio')
     expect(page).to have_css('li', text: "#{recipe.cook_time} minutos")
   end
   scenario 'and view only recipes from same type' do
@@ -61,12 +61,13 @@ feature 'Visitor view recipes by type' do
     expect(page).to have_css('h1', text: main_recipe.title)
     expect(page).to have_css('li', text: main_recipe.recipe_type.name)
     expect(page).to have_css('li', text: main_recipe.cuisine.name)
-    expect(page).to have_css('li', text: main_recipe.difficulty)
+    expect(page).to have_css('li', text: 'Difícil')
     expect(page).to have_css('li', text: "#{main_recipe.cook_time} minutos")
+
     expect(page).not_to have_css('h1', text: dessert_recipe.title)
     expect(page).not_to have_css('li', text: dessert_recipe.recipe_type.name)
     expect(page).not_to have_css('li', text: dessert_recipe.cuisine.name)
-    expect(page).not_to have_css('li', text: dessert_recipe.difficulty)
+    expect(page).not_to have_css('li', text: 'Médio')
     expect(page).not_to have_css('li', text: "#{dessert_recipe.cook_time}
                                               minutos")
   end

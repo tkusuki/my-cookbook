@@ -20,7 +20,7 @@ feature 'Visitor search for recipes' do
     another_recipe = create(
       :recipe,
       user: user, title: 'Salada de cenoura', recipe_type: another_recipe_type,
-      cuisine: cuisine, difficulty: 'easy',  cook_time: 60,
+      cuisine: cuisine, difficulty: 'easy', cook_time: 60,
       ingredients: 'Cenoura e legumes',
       method: 'Cozinhe a cenoura, misture com os legumes'
     )
@@ -36,7 +36,7 @@ feature 'Visitor search for recipes' do
     expect(page).to have_css('h1', text: recipe.title)
     expect(page).to have_css('li', text: recipe.recipe_type.name)
     expect(page).to have_css('li', text: recipe.cuisine.name)
-    expect(page).to have_css('li', text: recipe.difficulty)
+    expect(page).to have_css('li', text: 'Médio')
     expect(page).to have_css('li', text: "#{recipe.cook_time} minutos")
     expect(page).not_to have_css('h1', text: another_recipe.title)
   end
@@ -99,13 +99,13 @@ feature 'Visitor search for recipes' do
     expect(page).to have_css('h1', text: recipe.title)
     expect(page).to have_css('li', text: recipe.recipe_type.name)
     expect(page).to have_css('li', text: recipe.cuisine.name)
-    expect(page).to have_css('li', text: recipe.difficulty)
+    expect(page).to have_css('li', text: 'Médio')
     expect(page).to have_css('li', text: "#{recipe.cook_time} minutos")
 
     expect(page).to have_css('h1', text: another_recipe.title)
     expect(page).to have_css('li', text: another_recipe.recipe_type.name)
     expect(page).to have_css('li', text: another_recipe.cuisine.name)
-    expect(page).to have_css('li', text: another_recipe.difficulty)
+    expect(page).to have_css('li', text: 'Médio')
     expect(page).to have_css('li', text: "#{another_recipe.cook_time} minutos")
   end
 

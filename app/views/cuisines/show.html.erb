@@ -9,7 +9,7 @@
       <ul>
         <li><%= recipe.recipe_type.name %></li>
         <li><%= recipe.cuisine.name %></li>
-        <li><%= recipe.difficulty %></li>
+        <li><%= Recipe.human_attribute_name(recipe.difficulty) %></li>s
         <li><%= recipe.cook_time %> minutos</li>
       </ul>
     </div>
